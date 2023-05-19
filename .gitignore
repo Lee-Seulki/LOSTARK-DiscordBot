@@ -4,6 +4,9 @@
 ## 디스코드토큰
 discord_config
 
+## 테스트용 ipynb
+.ipynb
+
 ### macOS ###
 # General
 .DS_Store
