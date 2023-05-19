@@ -2,7 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,visualstudiocode,python,windows
 
 ## 디스코드토큰
-.config
+discord_config
+
 ### macOS ###
 # General
 .DS_Store
