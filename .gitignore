@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,python,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,visualstudiocode,python,windows
 
+## 디스코드토큰
+.config
 ### macOS ###
 # General
 .DS_Store
