@@ -34,19 +34,22 @@ def decrypt(ciphertext, key, iv):
 
 import json
 import requests
+import aiohttp
 
 from uuid import uuid4
 
 async def crystal():
     key = str(uuid4()).replace('-', '')
-    r = await requests.get('https://loatool.taeu.kr/api/crystal-history', headers={
-        'User-Agent': 'Mozilla/5.0',
-    }, cookies={
-        '__gpl': key,
-    })
-    # 고정인듯?
+    
+    async with aiohttp.ClientSession() as session:
+        async with session.get('https://loatool.taeu.kr/api/crystal-history', headers={
+            'User-Agent': 'Mozilla/5.0',
+            'Cookie': f'__gpl={key}'
+        }) as response:
+            r = await response.text()
+
     iv = 'y8tjifj89e383kke'
-    _decrypted = decrypt(r.text, key, iv)
+    _decrypted = decrypt(r, key, iv)
 
     return json.loads(_decrypted)
     # {"sell":2988.0,"buy":2980.0,"serverParseDt":"2023-05-20 13:27:34"}
