@@ -1,4 +1,5 @@
 # %pip install pycryptodome
+
 def decrypt(ciphertext, key, iv):
     """Decrypts the given ciphertext using the given key and IV.
 
@@ -34,9 +35,10 @@ def decrypt(ciphertext, key, iv):
 import json
 import requests
 
+from uuid import uuid4
+
 async def crystal():
-    # 쿠키값 생성 로직 확인 필요, 만료기한 10일 (~5/30)
-    key = '023c727346664b3db7637f5033b099ac'
+    key = str(uuid4()).replace('-', '')
     r = await requests.get('https://loatool.taeu.kr/api/crystal-history', headers={
         'User-Agent': 'Mozilla/5.0',
     }, cookies={
